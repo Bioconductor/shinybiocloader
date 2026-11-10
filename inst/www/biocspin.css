@@ -4,8 +4,13 @@
   display: flex;
   /* Align the top of the note and the top of the helix container */
   align-items: flex-start;
+  /* Span the full container so the logo can be centered horizontally */
+  width: 100%;
   /* Center the logo horizontally */
   justify-content: center;
+  /* The helix nucleobases have no layout width, so the visible artwork sits
+     right of the flex box's center; shift it left to center the artwork */
+  left: -33px;
   /* Add perspective to create a 3D space for child elements to transform in */
   perspective: 800px;
 }
@@ -13,8 +18,8 @@
 /* Container for the SVG note shape */
 .note-shape {
   /* Increased size for better proportion */
-  width: 90px;
-  height: 200px;
+  width: 112px;
+  height: 250px;
   z-index: 2;
   /* Add the new spinning animation */
   animation: spin-y 5s linear infinite;
@@ -36,9 +41,9 @@
 .dna {
   position: relative;
   /* Adjust horizontal position to align with the note stem */
-  left: 15px;
+  left: 19px;
   /* Nudge the animation down to align with the top of the note stem */
-  top: 15px;
+  top: 19px;
   margin: 0;
 }
 .dna::before, .dna::after {
@@ -51,13 +56,13 @@
   vertical-align: middle;
 }
 .nucleobase:not(:last-child) {
-  margin-right: 16px;
+  margin-right: 20px;
 }
 .nucleobase:before, .nucleobase:after {
   content: "";
   display: inline-block;
-  width: 10px;
-  height: 10px;
+  width: 12px;
+  height: 12px;
   border-radius: 50%;
   position: absolute;
 }
@@ -206,7 +211,7 @@
 /* Keyframes for the helix animation (unchanged) */
 @keyframes animBefore {
   0% {
-    top: -25px;
+    top: -31px;
     z-index: 1;
   }
   25% {
@@ -214,7 +219,7 @@
     z-index: 1;
   }
   50% {
-    top: 25px;
+    top: 31px;
     z-index: -1;
   }
   75% {
@@ -222,13 +227,13 @@
     z-index: -1;
   }
   100% {
-    top: -25px;
+    top: -31px;
     z-index: -1;
   }
 }
 @keyframes animAfter {
   0% {
-    top: 25px;
+    top: 31px;
     z-index: -1;
   }
   25% {
@@ -236,7 +241,7 @@
     z-index: -1;
   }
   50% {
-    top: -25px;
+    top: -31px;
     z-index: 1;
   }
   75% {
@@ -244,7 +249,7 @@
     z-index: 1;
   }
   100% {
-    top: 25px;
+    top: 31px;
     z-index: 1;
   }
 }
